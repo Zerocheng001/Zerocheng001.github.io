@@ -154,6 +154,132 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-基于appium自动化测试脚本之抖音自动刷视频" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/17/%E5%9F%BA%E4%BA%8Eappium%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC%E4%B9%8B%E6%8A%96%E9%9F%B3%E8%87%AA%E5%8A%A8%E5%88%B7%E8%A7%86%E9%A2%91/">基于appium自动化测试脚本之抖音自动刷视频</a>
+    </h1>
+  
+
+        
+        <a href="/2021/10/17/%E5%9F%BA%E4%BA%8Eappium%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC%E4%B9%8B%E6%8A%96%E9%9F%B3%E8%87%AA%E5%8A%A8%E5%88%B7%E8%A7%86%E9%A2%91/" class="archive-article-date">
+  	<time datetime="2021-10-17T08:19:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基于appium自动化测试脚本之抖音自动刷视频"><a href="#基于appium自动化测试脚本之抖音自动刷视频" class="headerlink" title="基于appium自动化测试脚本之抖音自动刷视频"></a><strong>基于appium自动化测试脚本之抖音自动刷视频</strong></h1><h2 id="一、开发环境"><a href="#一、开发环境" class="headerlink" title="一、开发环境"></a>一、开发环境</h2><p>1、安装python：可以在软件管家下载；</p>
+<p>2、安装client库 ：cmd命令行输入pip install appium-python-client；</p>
+<p>3、下载appium server：网上有很多下载安装教程，注意的是本设计题适用于安卓版本手机，苹果手机外在内。</p>
+<p>4、配置JDK：在网上下载JDK之后，打开电脑的设置，在搜索栏里面输入系统环境变量，单击进入“编辑系统环境变量”，新建系统变量，添加一个环境变量 JAVA_HOME ，指定 值 为JDK安装目录。</p>
+<p>5、安装并配置SDK：在网上下载SDK，同理，SDK也添加一个 环境变量 ANDROID_HOME ，设置值为SDK包解压目录，另外，配置环境变量 PATH ，点击新建，回到安装目录找到\androidsdk\platform-tools\，将路径完整复制下来，将刚才的复制的路径添加到Path里面。</p>
+<p><img src="https://github.com/Zerocheng001/Zerocheng001.github.io/blob/master/1.jpg" alt="img"></p>
+<p><img src="https://github.com/Zerocheng001/Zerocheng001.github.io/blob/master/2.jpg" alt="img"></p>
+<p><img src="https://github.com/Zerocheng001/Zerocheng001.github.io/blob/master/3.jpg" alt="img"></p>
+<p><img src="https://github.com/Zerocheng001/Zerocheng001.github.io/blob/master/4.jpg" alt="img"></p>
+<p><img src="https://github.com/Zerocheng001/Zerocheng001.github.io/blob/master/5.jpg" alt="img"></p>
+<p><img src="https://github.com/Zerocheng001/Zerocheng001.github.io/blob/master/6.jpg" alt="img"></p>
+<p><img src="https://github.com/Zerocheng001/Zerocheng001.github.io/blob/master/7.jpg" alt="img"></p>
+<h2 id="二、连接手机"><a href="#二、连接手机" class="headerlink" title="二、连接手机"></a>二、连接手机</h2><p>（1）USB线连接手机，进入 手机设置关于手机，不断点击版本号菜单（7次以上）退出到上级菜单，在开发者模式中，启动USB调试，有关USB的都打开；</p>
+<p>（2）打开电脑的命令提示符cmd命令行输入adb devices –l，能够看到设备名代表连接成功。</p>
+<h2 id="三、程序设计"><a href="#三、程序设计" class="headerlink" title="三、程序设计"></a>三、程序设计</h2><p>（1）确认自己手机安卓版本；</p>
+<p>（2）找到待操作app的package和acitivity：打开手机上的抖音，在电脑上cmd命令行执行adb shell dumpsys activity recents | find “intent={“；然后找到 cmp= 后面app的package和acitivity；</p>
+<p>（3）编写程序，完整的代码附在后边。</p>
+<p><img src="https://github.com/Zerocheng001/Zerocheng001.github.io/blob/master/8.png"></p>
+<h2 id="四、心得"><a href="#四、心得" class="headerlink" title="四、心得"></a>四、心得</h2><p>​        通过本次的动手，我学习了很多.我又再一次的重温了python，加深了对python的理解，特别是import语句和循环语句，而且自己还掌握了两种查找定位元素的方法，也发现并且体验了这两个方法的优点和缺点。uiautomatorviewer虽然定位元素很方便，但定位不了安卓模拟器，而且手机视频播放时是定位不了的，也不是很稳定，又是会出现错误；而appium可以定位而且较稳定，但比较麻烦，需要自己输入设备型号、版本还有端口号。也进一步地熟悉了解到了软件工程所学到的知识。体验到开发和测试时总会有困难出现，当有错误出现或者运行失败时，自己都会感到烦恼烦躁和疑惑，但自己通过不同办法解决一个又一个困难时，自己总会感到开心和振奋鼓舞。这次我不仅学到了知识 ，而且自己的动手能力得到了锻炼。</p>
+<h2 id="五、附件"><a href="#五、附件" class="headerlink" title="五、附件"></a>五、附件</h2><p>from appium import webdriver</p>
+<p>import time,traceback</p>
+<p>import random</p>
+<p>desired_caps = {</p>
+<p> ‘platformName’: ‘Android’, # 被测手机是安卓</p>
+<p> ‘platformVersion’: ‘7’, # 手机安卓版本</p>
+<p> ‘deviceName’: ‘xxx’, # 设备名，安卓手机可以随意填写</p>
+<p> ‘appPackage’: ‘com.ss.android.ugc.aweme’, # 启动APP Package名称</p>
+<p> ‘appActivity’: ‘.main.MainActivity’, # 启动Activity名称</p>
+<p> ‘unicodeKeyboard’: True, # 使用自带输入法，输入中文时填True</p>
+<p> ‘resetKeyboard’: True, # 执行完程序恢复原来输入法</p>
+<p> ‘noReset’: True,    # 不要重置App</p>
+<p> ‘newCommandTimeout’: 6000,</p>
+<p> ‘automationName’ : ‘UiAutomator2’</p>
+<p> # ‘app’: r’d:\apk\bili.apk’,</p>
+<p>}</p>
+<p># 连接Appium Server，初始化自动化环境</p>
+<p>driver = webdriver.Remote(‘<a target="_blank" rel="noopener" href="http://localhost:4723/wd/hub&#39;">http://localhost:4723/wd/hub&#39;</a>, desired_caps)</p>
+<p>time.sleep(6)#设置等待时间</p>
+<p>#定义函数获取屏幕宽度和高度</p>
+<p>def getSize():</p>
+<p>​    x = driver.get_window_size()[‘width’]</p>
+<p>​    y = driver.get_window_size()[‘height’]</p>
+<p>​    return (x, y)</p>
+<p>#定义函数实现滑动功能</p>
+<p>def swipeLeft():</p>
+<p>​    l = getSize()</p>
+<p>​    x1 = int(l[0] * 0.5)</p>
+<p>​    y1 = int(l[1] * 0.9)</p>
+<p>​    y2 = int(l[0] * 0.1)</p>
+<p>​    driver.swipe(x1, y1, x1, y2)</p>
+<p>#定义函数点按实现点赞功能</p>
+<p>def tap():</p>
+<p>  driver.tap([(675, 760)], 100)</p>
+<p>NoX = 1</p>
+<p>num = 1</p>
+<p>while NoX &gt; 0:</p>
+<p>  NoX = random.randint(10, 15)#设置时间多久</p>
+<p>  time.sleep(NoX)</p>
+<p>  print(f”第{num}次,等待{NoX}秒”)</p>
+<p>  num = num + 1</p>
+<p>  tap()</p>
+<p>  swipeLeft()</p>
+<p>input(‘**** Press to quit..’)</p>
+<p>driver.quit()</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/10/17/%E5%9F%BA%E4%BA%8Eappium%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC%E4%B9%8B%E6%8A%96%E9%9F%B3%E8%87%AA%E5%8A%A8%E5%88%B7%E8%A7%86%E9%A2%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-我的第一篇博客文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
